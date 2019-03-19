@@ -4,7 +4,7 @@ BINDIR=$(PREFIX)/bin
 CC=gcc
 INSTALL=ginstall
 
-all:	simpletun
+all: proxysocket simpletun 
 distclean:	clean
 
 clean:
@@ -15,4 +15,4 @@ install: all
 	$(INSTALL) -D simpletun $(DESTDIR)$(BINDIR)/simpletun
 
 macmask:
-	$(CC) simpletun.c -o simpletun
+	$(CC) proxysocket.c simpletun.c -o simpletun
