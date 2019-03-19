@@ -177,8 +177,8 @@ void usage(void) {
 void logger (int level, const char* message, void* userdata)
 {
   const char* lvl;
-  if (level > *(int*)userdata)
-    return;
+  //if (level > *(int*)userdata)
+    //return;
   switch (level) {
     case PROXYSOCKET_LOG_ERROR   : lvl = "ERR"; break;
     case PROXYSOCKET_LOG_WARNING : lvl = "WRN"; break;
@@ -286,7 +286,7 @@ int main(int argc, char *argv[]) {
     proxysocketconfig_add_proxy(proxy, proxy_type, "127.0.0.1", strtol("1080", (char**)NULL, 10), NULL, NULL);
      //connect
     errmsg = NULL;
-    sock = proxysocket_connect(proxy, remote_ip, 1080, &errmsg);
+    sock = proxysocket_connect(proxy, remote_ip, 55555, &errmsg);
     if (sock == INVALID_SOCKET) {
         fprintf(stderr, "%s\n", (errmsg ? errmsg : "Unknown error"));
         exit(1);
